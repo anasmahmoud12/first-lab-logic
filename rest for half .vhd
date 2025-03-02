@@ -26,16 +26,16 @@ end test_half ;
             begin
 
                x<='0'; y<='0' ; wait for 10 ns ;
-               --assert s = a xor b  report  " test fail in a=0  , b=0 ";
+               assert sum = 0  report  " test fail in a=0  , b=0 ";
 
                x<='0'; y<='1' ; wait for 10 ns ;
-              -- assert s = a xor b  report  " test fail in a=0  , b=1";
+              assert sum = 1 report  " test fail in a=0  , b=1";
                 
                x<='1'; y<='0' ; wait for 10 ns ;
-             --  assert s = a xor b  report  " test fail in a=1  , b=0 ";
+               assert sum = 1  " test fail in a=1  , b=0 ";
                 
                x<='1'; y<='1' ; wait for 10 ns ;
-               --assert s = a xor b  report  " test fail in a=1  , b=1 ";
+               assert sum = 0  report  " test fail in a=1  , b=1 ";
                 
 wait ;
             end process;
